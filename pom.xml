@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ejemplo</groupId>
-	<artifactId>Ejemplo</artifactId>
+	<artifactId>ejemplo-dwp</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Ejemplo Maven Webapp</name>
@@ -46,10 +46,12 @@
 			<version>1.16.16</version>
 			<scope>provided</scope>
 		</dependency>
+
+
 	</dependencies>
 
 	<build>
-		<finalName>Ejemplo</finalName>
+		<finalName>ejemplo-dwp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -65,10 +67,16 @@
 				<artifactId>wildfly-maven-plugin</artifactId>
 				<version>1.2.0.Alpha4</version>
 				<configuration>
+					<!-- direccion -->
 					<hostname>gitlab.ejemplo.dev</hostname>
 					<port>9990</port>
+					<!-- credenciales server -->
 					<username>admin</username>
 					<password>admin</password>
+					<!-- mode debug on -->
+					<java-opts>
+						<java-opt>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005</java-opt>
+					</java-opts>
 				</configuration>
 			</plugin>
 		</plugins>
