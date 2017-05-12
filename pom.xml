@@ -47,8 +47,20 @@
 			<scope>provided</scope>
 		</dependency>
 
-
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- https://mvnrepository.com/artifact/org.wildfly.bom/wildfly-javaee7-with-tools -->
+			<dependency>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>wildfly-javaee7-with-tools</artifactId>
+				<version>10.1.1.Final</version>
+				<type>war</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<finalName>ejemplo-dwp</finalName>
